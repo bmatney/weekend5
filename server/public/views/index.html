@@ -4,38 +4,43 @@
     <meta charset="utf-8">
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js" ></script>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
     <title>Weekend Challenge #5</title>
   </head>
   <body ng-app="myApp">
     <main ng-controller="EmployeeController as empCon">
-        <h1>Hello</h1>
-          <form id="employeeInfo">
-
-            <div class="formElement">
+      <div class="jumbotron">
+        <div class="container">
+        <h1>Employee Salary Expenditures</h1>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+          <form role="form" id="employeeInfo">
+            <div class="form-group">
               <label for="first_name">Employee First Name:</label>
-              <input type="text" id="first_name" name="first_name" ng-model="empCon.newEmployee.first_name"/>
+              <input type="text" class="form-control" id="first_name" name="first_name" ng-model="empCon.newEmployee.first_name"/>
             </div>
-            <div class="formElement">
+            <div class="form-group">
               <label for="last_name">Employee Last Name:</label>
-              <input type="text" id="last_name" name="last_name" ng-model="empCon.newEmployee.last_name"/>
+              <input type="text" class="form-control" id="last_name" name="last_name" ng-model="empCon.newEmployee.last_name"/>
             </div>
-            <div class="formElement">
+            <div class="form-group">
               <label for="employee_id">Employee ID Number:</label>
-              <input type="number" id="employee_id" name="employee_id" ng-model="empCon.newEmployee.employee_id"/>
+              <input type="number" class="form-control" id="employee_id" name="employee_id" ng-model="empCon.newEmployee.employee_id"/>
             </div>
-            <div class="formElement">
+            <div class="form-group">
               <label for="job_title">Employee Job Title:</label>
-              <input type="text" id="job_title" name="job_title" ng-model="empCon.newEmployee.job_title"/>
+              <input type="text" class="form-control" id="job_title" name="job_title" ng-model="empCon.newEmployee.job_title"/>
             </div>
-            <div class="formElement">
+            <div class="form-group">
               <label for="salary">Employee Salary:</label>
-              <input type="number" id="salary" name="salary" ng-model="empCon.newEmployee.salary"/>
+              <input type="number" class="form-control" id="salary" name="salary" ng-model="empCon.newEmployee.salary"/>
             </div>
             <button ng-click="empCon.addEmployees()">Submit</button>
           </form>
-
-          <table>
+          <table class="table">
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -46,13 +51,14 @@
             <tr ng-repeat="person in empCon.employees">
                 <td ng-model="person.first_name">{{person.first_name}}</td>
                 <td ng-model="person.last_name">{{person.last_name}}</td>
-                <td ng-model="person.employee_id">{{person.employee_id}}</td>
+                <td ng-model="person.employee_id">ID #{{person.employee_id}}</td>
                 <td ng-model="person.job_title">{{person.job_title}}</td>
-                <td ng-model="person.salary">{{person.salary}}</td>
+                <td ng-model="person.salary">${{person.salary}}</td>
                 <td><button ng-click="empCon.deleteEmployees(person)">Delete</button></td>
             </tr>
         </table>
-        <h3>Total monthly salary expenditures: <span>{{empCon.monthlySalary}}</span></h3>
+        <h4>Total monthly salary expenditures: $<span>{{empCon.monthlySalary}}</span></h4>
+      </div>
     </main>
   </body>
 </html>

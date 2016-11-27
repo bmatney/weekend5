@@ -20,7 +20,7 @@ myApp.controller("EmployeeController", ["$http", function ($http) {
         for (var i = 0; i < self.employees.length; i++) {
           salarySum += Number(self.employees[i].salary)
         }
-        self.monthlySalary = salarySum/12;
+        self.monthlySalary = parseInt(salarySum/12).toFixed(2);
       });
   }
 

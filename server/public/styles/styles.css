@@ -1,7 +1,10 @@
 h1{
   text-align: center;
 }
-.formElement{
-  margin: 0 auto;
-  width: 50%;
+body{
+  background-color: #EEEEEE;
+}
+.jumbotron{
+  background-color: #00897B;
+  color: #FFFFFF;
 }
